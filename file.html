@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript IV Task</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="Styles\bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Styles\styles.css">
+    <script type="text/javascript" src="Scripts\js.js"></script>
+</head>
+<body onload=StartingBackground() id="main_page"> <!-- main body -->
+	<h1> Fun With JS! </h1>
+	<h2> Game 1: Click the button as much as possible. </h2>
+	<p> The aim of this game is to click the button as much as possible. Can you reach 15K? </p>
+	<button id="click_button" onclick=ClickGame() type="button" class="btn btn-primary">Click Here</button>
+	<img id="clickimg" src="Images\click.gif" alt="ClickingPic" title="Mouse Spam"> <!-- gif image -->
+	<hr>
+	<h2> Game 2: Convert Rands Into Other Currencies! </h2>
+	<p> In this game (not really a game), you can see how much rand gets you other currencies. Updated 22/7/2018 </p>
+	 
+	<div class="container"> <!-- This div hold the form for the currency converters -->
+	  	<h2>Converter</h2>
+	  	<form>
+		    <div class="form-group">
+		    <label for="rands">Rands</label>
+		    <input oninput=UpdateCurrencies() type="number" class="form-control" id="textrand" placeholder="Enter Rands" name="rand">
+		    </div>
+	    	<!--dollars --> 
+		    <div class="form-group">
+		    <label for="dollars">USD</label>
+		    <input type="text" class="form-control" id="textdollar" placeholder="Dollars" name="dollar">
+		    </div>
+	    	<!--euro --> 
+		    <div class="form-group">
+		    <label for="euro">Euro</label>
+		    <input type="text" class="form-control" id="texteuro" placeholder="Euros" name="euro">
+		    </div>
+	    	<!--pounds --> 
+		    <div class="form-group">
+		    <label for="pounds">GBP</label>
+		    <input type="text" class="form-control" id="textpound" placeholder="Pounds" name="pound">
+		    </div>
+	 	</form> 
+	</div>
+
+  	<hr>
+
+ 	<h2> Game 3: Calculator  <button onclick=ToggleCalc() id="toggle_calc_display" class="btn btn-danger">Hide/Show</button> </h2>
+	<p> Have fun! Only one operator symbol can be used at a time. Please clear the calculator after every equation. </p>
+
+  	<div id="calcbody">
+  		<div>
+  			<p id="line_1_display"> Hello </p>
+  		</div>
+  		<div>
+  			<p id="line_2_display"> Please Use Me! </p>
+  		</div>
+
+  		<div id="one_R_Buttons"> <!-- first row buttons -->
+  		<button onclick=GenEquation(this.id) id="7_button" type="button" class="btn">7</button>
+  		<button onclick=GenEquation(this.id) id="8_button" type="button" class="btn">8</button>
+  		<button onclick=GenEquation(this.id) id="9_button" type="button" class="btn">9</button>
+  		<button onclick=GenSymbol(this.id) id="times_button" type="button" class="btn btn-warning"> * </button>
+  		</div>
+
+  		<div id="two_R_Buttons"> <!-- second row buttons -->
+  		<button onclick=GenEquation(this.id) id="4_button" type="button" class="btn">4</button>
+  		<button onclick=GenEquation(this.id) id="5_button" type="button" class="btn">5</button>
+  		<button onclick=GenEquation(this.id) id="6_button" type="button" class="btn">6</button>
+  		<button onclick=GenSymbol(this.id) id="minus_button" type="button" class="btn btn-warning"> - </button>
+  		</div>
+
+  		<div id="three_R_Buttons"> <!-- third row buttons -->
+  		<button onclick=GenEquation(this.id) id="1_button" type="button" class="btn">1</button>
+  		<button onclick=GenEquation(this.id) id="2_button" type="button" class="btn">2</button>
+  		<button onclick=GenEquation(this.id) id="3_button" type="button" class="btn">3</button>
+  		<button onclick=GenSymbol(this.id) id="add_button" type="button" class="btn btn-warning"> + </button>
+  		</div>
+
+  		<div id="four_R_Buttons"> <!-- fourth row -->
+  		<button onclick=GenEquation(this.id) id="0_button" type="button" class="btn">0</button>
+  		<button onclick=GenSymbol(this.id) id="div_button" type="button" class="btn btn-warning">/</button>
+  		<button onclick=DoThings(this.id) id="equals_button" type="button" class="btn btn-success">=</button>
+  		<button onclick=DoThings(this.id) id="clr_button" type="button" class="btn btn-info">C</button>
+  		<!-- After coding I see that the row divs were not needed -->
+  		</div>
+  </div>
+  <hr>
+  <button onclick=CloseWindow() id="close" class="btn btn-danger"> Close This Page </button>
+</body>
+</html>
